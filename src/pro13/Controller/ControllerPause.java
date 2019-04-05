@@ -1,25 +1,37 @@
-package pro13;
+package pro13.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
-public class Controllerback implements PropertyChangeListener {
+public class ControllerPause implements PropertyChangeListener {
 
     @FXML
     public AnchorPane anchorPane;
 
+    @FXML
+    private Button continueB;
 
     @FXML
-    private Button back;
+    private Button restart;
+
+    @FXML
+    private Button mainMenu;
 
 
-    public void back() throws IOException {
+    public void restart() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ly2.fxml"));
+        AnchorPane pane = loader.load();
+        anchorPane.getScene().setRoot(pane);
+    }
+
+    public void mainMenu() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ly1.fxml"));
         AnchorPane pane = loader.load();
         anchorPane.getScene().setRoot(pane);

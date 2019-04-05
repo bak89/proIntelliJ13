@@ -1,4 +1,4 @@
-package pro13;
+package pro13.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

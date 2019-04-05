@@ -1,5 +1,4 @@
-package pro13;
-
+package pro13.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,29 +9,17 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
-public class ControllerEndGame implements PropertyChangeListener {
-
+public class Controllerback implements PropertyChangeListener {
 
     @FXML
     public AnchorPane anchorPane;
 
-    @FXML
-    private Button score;
 
     @FXML
-    private Button restart;
-
-    @FXML
-    private Button mainMenu;
+    private Button back;
 
 
-    public void restart() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ly2.fxml"));
-        AnchorPane pane = loader.load();
-        anchorPane.getScene().setRoot(pane);
-    }
-
-    public void mainMenu() throws IOException{
+    public void back() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ly1.fxml"));
         AnchorPane pane = loader.load();
         anchorPane.getScene().setRoot(pane);

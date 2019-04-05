@@ -15,7 +15,7 @@ public class Main extends Application {
        // ResourceBundle bundle = ResourceBundle.getBundle("easter.example", new Locale("de", "DE"));
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("ly1.fxml")); //bun
+        Parent root = FXMLLoader.load(getClass().getResource("Controller/ly1.fxml")); //bun
         primaryStage.setTitle("Main Menu");
         primaryStage.setScene(new Scene(root, 386, 653));
         primaryStage.setResizable(false);
