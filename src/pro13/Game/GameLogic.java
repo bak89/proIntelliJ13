@@ -27,11 +27,10 @@ public class GameLogic extends Application {
     private Parent createContent() {
         Pane root = new Pane();
 
-
-        for (int x = 0; x < grid.length; x++) {
-            for (int y = 0; y < grid[x].length; y++) {
-                Tile tile = new Tile();
-                grid[x][y] = tile;
+        for (int x = 0; x < WIDTH; x++) {
+            for (int y = 0; y < HEIGHT; y++) {
+                Tile tile = new Tile( x, y);
+                //grid[x][y] = tile;
                 tileGroup.getChildren().add(tile);
             }
         }

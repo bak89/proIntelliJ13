@@ -13,10 +13,10 @@ public class Tile extends Button {
     private String buttonNumber = "2";
     private int number;
 
-    public Tile() {
+    public Tile(int x, int y) {
         this.number = number;
         setPrefSize(TILE_SIZE, TILE_SIZE);
-
+        relocate(x * GameLogic.TILE_SIZE, y * GameLogic.TILE_SIZE);
         //Random rand = new Random();
         //Color.color(rand.nextDouble(), rand.nextDouble(), rand.nextDouble());
         setStyle("-fx-background-color: #ff3b00");
