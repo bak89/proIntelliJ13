@@ -69,6 +69,7 @@ public class Tile extends Button {
         setStyle("-fx-background-color: #ff3b00");
 */
         setOnAction(new pressButton());
+
     }
 
     private class pressButton implements EventHandler<ActionEvent> {
