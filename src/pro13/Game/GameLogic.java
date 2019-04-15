@@ -18,7 +18,7 @@ public class GameLogic extends Application {
 
     public static final int TILE_SIZE = 100;
     public static final int WIDTH = 6;
-    public static final int HEIGHT = 5;
+    public static final int HEIGHT = 6;
 
     Tile[][] grid = new Tile[WIDTH][HEIGHT];
     private Group tileGroup = new Group();
