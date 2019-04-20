@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -17,8 +18,8 @@ public class GameLogic extends Application {
     private int w; //max width of range
 
     public static final int TILE_SIZE = 100;
-    public static final int WIDTH = 5;
-    public static final int HEIGHT = 4;
+    public static final int WIDTH = 3;
+    public static final int HEIGHT = 3;
 
     Tile[][] grid = new Tile[WIDTH][HEIGHT];
     private Group tileGroup = new Group();
@@ -29,7 +30,7 @@ public class GameLogic extends Application {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
                 Tile tile = new Tile(x, y);
-                //grid[x][y] = tile;
+                grid[x][y] = tile;
                 tileGroup.getChildren().add(tile);
             }
         }
@@ -54,6 +55,7 @@ public class GameLogic extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
 
 //initialstate
@@ -66,9 +68,6 @@ public class GameLogic extends Application {
     lb = max(1,ub-w)
 
 
-    //6 always down
-
-    //connect box with numbers
 */
 
 

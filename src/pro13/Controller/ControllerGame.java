@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import pro13.Game.GameLogic;
 
 
 import java.beans.PropertyChangeEvent;
@@ -24,6 +26,13 @@ public class ControllerGame implements PropertyChangeListener {
 
     @FXML
     private Button undo;
+
+    @FXML
+    private StackPane stackPane;
+
+public void grid(){
+
+}
 
     public void pause(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ly3.fxml"));

@@ -21,7 +21,7 @@ public class Tile extends Button {
 
     public void setButtonNumber(String buttonNumber) {
         this.buttonNumber = buttonNumber;
-        int num= rand.nextInt(5) + 1;
+        int num = rand.nextInt(nextLevel()) + 1;
         buttonNumber = Integer.toString(num);
     }
 
@@ -30,44 +30,34 @@ public class Tile extends Button {
         setPrefSize(TILE_SIZE, TILE_SIZE);
         relocate(x * GameLogic.TILE_SIZE, y * GameLogic.TILE_SIZE);
 
-        int num= rand.nextInt(5) + 1;
+        int num = rand.nextInt(nextLevel()) + 1;
         buttonNumber = Integer.toString(num);
 
-        switch (num){
+        switch (num) {
             case 1:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #f3ff08");
                 break;
             case 2:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #19ff00");
                 break;
             case 3:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #ff9c00");
                 break;
             case 4:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #ff1100");
                 break;
             case 5:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #ff0097");
                 break;
             case 6:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #0037ff");
                 break;
             case 7:
-                setText(buttonNumber);
                 setStyle("-fx-background-color: #f7fcff");
                 break;
         }
+        setText(buttonNumber);
 
-    /*    setText(buttonNumber);
-        setText(getButtonNumber());
-        setStyle("-fx-background-color: #ff3b00");
-*/
         setOnAction(new pressButton());
 
     }
@@ -77,33 +67,27 @@ public class Tile extends Button {
         @Override
         public void handle(ActionEvent event) {
             String a = increaseTile();
-            switch (a){
+
+            switch (a) {
                 case "1":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #f3ff08");
                     break;
                 case "2":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #19ff00");
                     break;
                 case "3":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #ff9c00");
                     break;
                 case "4":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #ff1100");
                     break;
                 case "5":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #ff0097");
                     break;
                 case "6":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #0037ff");
                     break;
                 case "7":
-                    setText(buttonNumber);
                     setStyle("-fx-background-color: #f7fcff");
                     break;
             }
@@ -120,5 +104,8 @@ public class Tile extends Button {
         return result = Integer.toString(summe);
     }
 
-
+    public int nextLevel() {
+        int numb = 5;
+        return numb;
+    }
 }
