@@ -15,7 +15,7 @@ public class Tile extends Button {
     private int number;
     Random rand = new Random();
 
-    public String getButtonNumber() {
+    /*public String getButtonNumber() {
         return buttonNumber;
     }
 
@@ -23,7 +23,7 @@ public class Tile extends Button {
         this.buttonNumber = buttonNumber;
         int num = rand.nextInt(nextLevel()) + 1;
         buttonNumber = Integer.toString(num);
-    }
+    }*/
 
     public Tile(int x, int y) {
         this.number = number;
@@ -66,7 +66,8 @@ public class Tile extends Button {
 
         @Override
         public void handle(ActionEvent event) {
-            String a = increaseTile();
+            String nmb = ((Tile)event.getSource()).getText();
+            String a = increaseTile(nmb);
 
             switch (a) {
                 case "1":
@@ -92,14 +93,12 @@ public class Tile extends Button {
                     break;
             }
             setText(a);
-
         }
-
     }
 
-    public String increaseTile() {
+    public String increaseTile(String nmb) {
         String result;
-        int fromButton = Integer.parseInt(getButtonNumber());
+        int fromButton = Integer.parseInt(nmb);
         int summe = fromButton + 1;
         return result = Integer.toString(summe);
     }
