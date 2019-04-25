@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/src/pro13/ContinueMenu.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/ContinueMenu_de.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/ContinueMenu_en.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/ContinueMenu_it.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/EndGame.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/EndGame_de.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/EndGame_en.properties" />
+    <file url="file://$PROJECT_DIR$/src/pro13/EndGame_it.properties" />
     <file url="file://$PROJECT_DIR$/src/pro13/menu.properties" />
     <file url="file://$PROJECT_DIR$/src/pro13/menu_DE.properties" />
     <file url="file://$PROJECT_DIR$/src/pro13/menu_EN.properties" />
@@ -11,6 +19,20 @@
       <file value="file://$PROJECT_DIR$/src/pro13/menu_EN.properties" />
       <file value="file://$PROJECT_DIR$/src/pro13/menu_IT.properties" />
       <base-name>menu</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/pro13/EndGame_de.properties" />
+      <file value="file://$PROJECT_DIR$/src/pro13/EndGame_en.properties" />
+      <file value="file://$PROJECT_DIR$/src/pro13/EndGame_it.properties" />
+      <base-name>EndGame</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/pro13/ContinueMenu.properties" />
+      <file value="file://$PROJECT_DIR$/src/pro13/ContinueMenu_de.properties" />
+      <file value="file://$PROJECT_DIR$/src/pro13/ContinueMenu_en.properties" />
+      <file value="file://$PROJECT_DIR$/src/pro13/ContinueMenu_it.properties" />
+      <file value="file://$PROJECT_DIR$/src/pro13/EndGame.properties" />
+      <base-name>ContinueMenu</base-name>
     </custom-resource-bundle>
   </component>
 </project>

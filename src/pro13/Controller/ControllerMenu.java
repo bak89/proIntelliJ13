@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import pro13.MenuModel;
+import pro13.model.Model;
 
 
 import java.beans.PropertyChangeEvent;
@@ -30,9 +31,12 @@ public class ControllerMenu implements PropertyChangeListener {
     private MenuModel menu;
 
     public void newGame(ActionEvent event) throws IOException {
+        Model model = new Model();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ly2.fxml"));
         AnchorPane pane = loader.load();
         anchorPane.getScene().setRoot(pane);
+        loader.<ControllerGame>getController().init(model);
+        model.grid();
     }
 
 

@@ -18,10 +18,12 @@ public class GameLogic extends Application {
     private int w; //max width of range
 
     public static final int TILE_SIZE = 100;
-    public static final int WIDTH = 3;
-    public static final int HEIGHT = 3;
+    public static final int WIDTH = 5;
+    public static final int HEIGHT = 5;
 
-    Tile[][] grid = new Tile[WIDTH][HEIGHT];
+    Random random = new Random();
+
+    //   Tile[][] grid = new Tile[WIDTH][HEIGHT];
     private Group tileGroup = new Group();
 
     private Parent createContent() {
@@ -29,9 +31,8 @@ public class GameLogic extends Application {
 
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
-                Tile tile = new Tile(x, y);
-                grid[x][y] = tile;
-                tileGroup.getChildren().add(tile);
+               // Tile tile = new Tile(x,y,random.nextInt(5)+1);
+               // tileGroup.getChildren().add(tile);
             }
         }
 
