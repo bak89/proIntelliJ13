@@ -26,6 +26,9 @@ public class Model {
         support.addPropertyChangeListener(listener);
     }
 
+    /**
+     * Step 1 Create a grid
+     */
     public void grid() {
         for (int x = 0; x < Settings.WIDTH; x++) {
             for (int y = 0; y < Settings.HEIGHT; y++) {
@@ -37,6 +40,9 @@ public class Model {
         newGame();
     }
 
+    /**
+     * Step 5
+     */
     private void newGame() {
         this.support.firePropertyChange("New Game", null, tiles);
     }
@@ -45,6 +51,11 @@ public class Model {
         this.support.firePropertyChange("Continue", tiles, null);
     }
 
+    /**
+     * Step 4 create meth pressButton
+     * @param x
+     * @param y
+     */
     public void pressButton(int x, int y) {
         ArrayList<Tile> neighbors = getNeighborTiles(x, y, new ArrayList<Tile>());
         if (neighbors.isEmpty()) {
@@ -55,11 +66,17 @@ public class Model {
             removeBlock(tile);
         }
 
-        getTile(x, y).increaseTile();
+        getTile(x, y).increaseTile();//from the class tile
 
     }
 
-
+    /**
+     * Step 3 create a ArrayList to search neighbor, use method getTile per confrontarli
+     * @param x
+     * @param y
+     * @param visitedTile
+     * @return
+     */
     private ArrayList<Tile> getNeighborTiles(int x, int y, ArrayList<Tile> visitedTile) {
         ArrayList<Tile> sameNumber = new ArrayList<>();
 
@@ -71,6 +88,7 @@ public class Model {
 
         visitedTile.add(tile);
 
+        //search tile neighbor with position
         Tile[] tilesNeighbor = new Tile[]{
                 getTile(x + 1, y),
                 getTile(x - 1, y),
@@ -90,6 +108,13 @@ public class Model {
         return sameNumber;
     }
 
+    /**
+     * Step 2
+     * From the first ArrayList Tile tiles , get tile
+     * @param x
+     * @param y
+     * @return
+     */
     private Tile getTile(int x, int y) {
         for (Tile tile : tiles) {
             if (tile.getX() == x && tile.getY() == y) {
@@ -104,7 +129,7 @@ public class Model {
     }
 
     /**
-     * step5
+     * step6
      *
      * @param neighbors
      */
@@ -122,6 +147,10 @@ public class Model {
 
     }
 
+    /**
+     * Step 7
+     * @param tile
+     */
     private void fallDown(Tile tile){
         support.firePropertyChange("Fall",null,tile);
     }
