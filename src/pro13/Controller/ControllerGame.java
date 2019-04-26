@@ -9,12 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import pro13.Game.GameLogic;
+import pro13.Game.Tile;
 import pro13.model.Model;
 
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class ControllerGame implements PropertyChangeListener {
@@ -34,6 +36,10 @@ public class ControllerGame implements PropertyChangeListener {
     @FXML
     private StackPane stackPane;
 
+    private Group group = new Group();
+
+    private ArrayList<Tile> tiles = new ArrayList<>();
+
     private Model model;
 
 
@@ -48,15 +54,23 @@ public class ControllerGame implements PropertyChangeListener {
         anchorPane.getScene().setRoot(pane);
     }
 
+    private void addAllTiles(ArrayList<Tile> tiles) {
+        group.getChildren().addAll(tiles);
+        stackPane.getChildren().addAll(group);
+    }
+
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
             case "New Game":
-                stackPane.getChildren().addAll((Group) evt.getNewValue());
+                addAllTiles((ArrayList<Tile>) evt.getNewValue());
                 break;
             case "Continue":
                 stackPane.getChildren().addAll((Group) evt.getOldValue());
+                break;
+            case "Remove":
+                group.getChildren().remove(evt.getNewValue());
                 break;
         }
 

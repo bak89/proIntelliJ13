@@ -57,7 +57,6 @@ public class Tile extends Button {
 
         setOnAction(event -> {
             model.pressButton(x, y);
-            increaseTile();
         });
 
 

@@ -38,28 +38,56 @@ public class Model {
     }
 
     private void newGame() {
-        this.support.firePropertyChange("New Game", null, tileGroup);
+        this.support.firePropertyChange("New Game", null, tiles);
     }
 
-    private void continueWithGame(){
-        this.support.firePropertyChange("Continue",tileGroup,null);
+    private void continueWithGame() {
+        this.support.firePropertyChange("Continue", tiles, null);
     }
 
     public void pressButton(int x, int y) {
+        ArrayList<Tile> tileArrayList = getNeighborTiles(x, y, new ArrayList<Tile>());
+        if (tileArrayList.isEmpty()) {
+            return;
+        }
 
+        for (Tile tile: tileArrayList) {
+            removeBlock(tile);
+        }
+
+        getTile(x,y).increaseTile();
 
     }
 
 
-    private ArrayList<Tile> getNeighborTiles(int x, int y, ArrayList<Tile> oldTile) {
-        Tile[] tiles = new Tile[]{
+    private ArrayList<Tile> getNeighborTiles(int x, int y, ArrayList<Tile> visitedTile) {
+        ArrayList<Tile> sameNumber = new ArrayList<>();
+
+        Tile tile = getTile(x, y);
+
+        if (tile == null) {//best case
+            return sameNumber;
+        }
+
+        visitedTile.add(tile);
+
+        Tile[] tilesNeighbor = new Tile[]{
                 getTile(x + 1, y),
                 getTile(x - 1, y),
                 getTile(x, y + 1),
                 getTile(x, y - 1)
         };
 
-        return null;
+
+        for (Tile neighbor : tilesNeighbor) {
+            if (neighbor == null) continue;
+            if (tile.getNumber() == neighbor.getNumber() && !visitedTile.contains(neighbor)) {
+                sameNumber.add(neighbor);
+                sameNumber.addAll(getNeighborTiles(neighbor.getX(), neighbor.getY(), visitedTile));
+            }
+        }
+
+        return sameNumber;
     }
 
     private Tile getTile(int x, int y) {
@@ -69,5 +97,9 @@ public class Model {
             }
         }
         return null;
+    }
+
+    private void removeBlock(Tile tile) {
+        this.support.firePropertyChange("Remove",null,tile);
     }
 }
