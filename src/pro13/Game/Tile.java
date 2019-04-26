@@ -68,4 +68,11 @@ public class Tile extends Button {
         setText(Integer.toString(number));
         setBackground(new Background(new BackgroundFill(Settings.BLOCK_COLORS.get(number), new CornerRadii(5), Insets.EMPTY)));
     }
+
+    /**
+     * Fall down
+     */
+    public void fallDown(){
+        this.setLayoutY(getLayoutY()+Settings.TILE_SIZE);
+    }
 }

@@ -72,6 +72,10 @@ public class ControllerGame implements PropertyChangeListener {
             case "Remove":
                 group.getChildren().remove(evt.getNewValue());
                 break;
+            case "Fall":
+                Tile tile =(Tile)evt.getNewValue();
+                tile.fallDown();
+                break;
         }
 
     }

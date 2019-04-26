@@ -46,16 +46,16 @@ public class Model {
     }
 
     public void pressButton(int x, int y) {
-        ArrayList<Tile> tileArrayList = getNeighborTiles(x, y, new ArrayList<Tile>());
-        if (tileArrayList.isEmpty()) {
+        ArrayList<Tile> neighbors = getNeighborTiles(x, y, new ArrayList<Tile>());
+        if (neighbors.isEmpty()) {
             return;
         }
 
-        for (Tile tile: tileArrayList) {
+        for (Tile tile : neighbors) {//qui abbiamo anche i buchi
             removeBlock(tile);
         }
 
-        getTile(x,y).increaseTile();
+        getTile(x, y).increaseTile();
 
     }
 
@@ -100,6 +100,29 @@ public class Model {
     }
 
     private void removeBlock(Tile tile) {
-        this.support.firePropertyChange("Remove",null,tile);
+        this.support.firePropertyChange("Remove", null, tile);
+    }
+
+    /**
+     * step5
+     *
+     * @param neighbors
+     */
+    private void toTop(ArrayList<Tile> neighbors) {
+
+        for (Tile tile : neighbors) {
+            int y = tile.getY();
+            for (int i = y; i >= 1; i--) {
+                Tile above =getTile(tile.getX(),i - 1);
+                above.setY(above.getY()+1);
+                tile.setY(tile.getY()-1);
+                fallDown(above);
+            }
+        }
+
+    }
+
+    private void fallDown(Tile tile){
+        support.firePropertyChange("Fall",null,tile);
     }
 }
