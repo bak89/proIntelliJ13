@@ -60,6 +60,8 @@ public class ControllerGame implements PropertyChangeListener {
     }
 
 
+
+
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
@@ -72,10 +74,18 @@ public class ControllerGame implements PropertyChangeListener {
             case "Remove":
                 group.getChildren().remove(evt.getNewValue());
                 break;
-            case "Fall":
+           case "Fall":
                 Tile tile =(Tile)evt.getNewValue();
                 tile.fallDown();
                 break;
+            case "Bomb":
+
+                break;
+
+            case "Undo":
+                break;
+
+
         }
 
     }

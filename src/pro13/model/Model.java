@@ -53,6 +53,7 @@ public class Model {
 
     /**
      * Step 4 create meth pressButton
+     *
      * @param x
      * @param y
      */
@@ -64,14 +65,16 @@ public class Model {
 
         for (Tile tile : neighbors) {//qui abbiamo anche i buchi
             removeBlock(tile);
-        }
 
+        }
+        toTop(neighbors);
         getTile(x, y).increaseTile();//from the class tile
 
     }
 
     /**
      * Step 3 create a ArrayList to search neighbor, use method getTile per confrontarli
+     *
      * @param x
      * @param y
      * @param visitedTile
@@ -111,6 +114,7 @@ public class Model {
     /**
      * Step 2
      * From the first ArrayList Tile tiles , get tile
+     *
      * @param x
      * @param y
      * @return
@@ -124,12 +128,17 @@ public class Model {
         return null;
     }
 
-    private void removeBlock(Tile tile) {
+    /**
+     * setp 6
+     *
+     * @param tile
+     */
+    public void removeBlock(Tile tile) {
         this.support.firePropertyChange("Remove", null, tile);
     }
 
     /**
-     * step6
+     * step7
      *
      * @param neighbors
      */
@@ -138,9 +147,9 @@ public class Model {
         for (Tile tile : neighbors) {
             int y = tile.getY();
             for (int i = y; i >= 1; i--) {
-                Tile above =getTile(tile.getX(),i - 1);
-                above.setY(above.getY()+1);
-                tile.setY(tile.getY()-1);
+                Tile above = getTile(tile.getX(), i - 1);
+                above.setY(above.getY() + 1);
+                tile.setY(tile.getY() - 1);
                 fallDown(above);
             }
         }
@@ -148,10 +157,11 @@ public class Model {
     }
 
     /**
-     * Step 7
+     * Step 8
+     *
      * @param tile
      */
-    private void fallDown(Tile tile){
-        support.firePropertyChange("Fall",null,tile);
+    private void fallDown(Tile tile) {
+        support.firePropertyChange("Fall", null, tile);
     }
 }

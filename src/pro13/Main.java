@@ -18,7 +18,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Controller/ly1.fxml")); //bun
         primaryStage.setTitle("Main Menu");
         primaryStage.setScene(new Scene(root, 386, 653));
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

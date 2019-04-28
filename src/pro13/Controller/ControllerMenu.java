@@ -46,6 +46,7 @@ public class ControllerMenu implements PropertyChangeListener {
     }
 
 
+
     public void score(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ly5.fxml"));
         AnchorPane pane = loader.load();
