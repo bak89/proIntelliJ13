@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import pro13.Game.GameLogic;
+import pro13.Game.Settings;
 import pro13.Game.Tile;
 import pro13.model.Model;
 
@@ -38,6 +39,7 @@ public class ControllerGame implements PropertyChangeListener {
 
     private Group group = new Group();
 
+
     private ArrayList<Tile> tiles = new ArrayList<>();
 
     private Model model;
@@ -60,8 +62,6 @@ public class ControllerGame implements PropertyChangeListener {
     }
 
 
-
-
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
@@ -74,9 +74,10 @@ public class ControllerGame implements PropertyChangeListener {
             case "Remove":
                 group.getChildren().remove(evt.getNewValue());
                 break;
-           case "Fall":
-                Tile tile =(Tile)evt.getNewValue();
+            case "Fall":
+                Tile tile = (Tile) evt.getNewValue();
                 tile.fallDown();
+
                 break;
             case "Bomb":
 

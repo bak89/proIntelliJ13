@@ -75,4 +75,13 @@ public class Tile extends Button {
     public void fallDown(){
         this.setLayoutY(getLayoutY()+Settings.TILE_SIZE);
     }
+
+
+    public void rise(){
+        y--;
+    }
+
+    public void fall(){
+        y++;
+    }
 }
