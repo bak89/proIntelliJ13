@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import pro13.MenuModel;
+//import pro13.model.MenuModel;
 import pro13.model.Model;
 
 
@@ -28,7 +28,7 @@ public class ControllerMenu implements PropertyChangeListener {
     @FXML
     private Button language;
 
-    private MenuModel menu;
+  //  private MenuModel menu;
 
     public void newGame(ActionEvent event) throws IOException {
         Model model = new Model();

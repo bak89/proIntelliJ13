@@ -1,22 +1,21 @@
 package pro13.Game;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
+import pro13.Controller.GameController;
+import pro13.model.GameModel;
 import pro13.model.Model;
 
 
 public class Tile extends Button {
 
-
     private int number;
     private int x;
     private int y;
+    private GameModel gameModel;
 
     public int getNumber() {
         return number;
@@ -42,7 +41,8 @@ public class Tile extends Button {
         this.y = y;
     }
 
-    public Tile(int x, int y, int number, Model model) {
+    //public Tile(int x, int y, int number, Model model) {
+    public Tile(int x, int y, int number, GameModel gameModel) {
         this.number = number;
         this.x = x;
         this.y = y;
@@ -56,12 +56,10 @@ public class Tile extends Button {
         setText(Integer.toString(number));
 
         setOnAction(event -> {
-            model.pressButton(x, y);
+           // model.pressButton(x, y);
+           // gameModel.pressButton(x,y);
         });
-
-
     }
-
 
     public void increaseTile() {
         number++;
@@ -69,19 +67,29 @@ public class Tile extends Button {
         setBackground(new Background(new BackgroundFill(Settings.BLOCK_COLORS.get(number), new CornerRadii(5), Insets.EMPTY)));
     }
 
+    public void setBomb(boolean bomb) {
+        if (bomb)
+            System.out.println("bomb active");
+        else
+            System.out.println("bomb not active");
+    }
+
     /**
      * Fall down
      */
-    public void fallDown(){
-        this.setLayoutY(getLayoutY()+Settings.TILE_SIZE);
+    public void fallDown() {
+        this.setLayoutY(getLayoutY() + Settings.TILE_SIZE);
     }
 
-
-    public void rise(){
+    public void rise() {
         y--;
     }
 
-    public void fall(){
+    public void fall() {
         y++;
+    }
+
+    public void tileClick() {
+        this.gameModel.tileClick(new Location(this.x, this.y));
     }
 }

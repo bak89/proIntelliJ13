@@ -52,14 +52,17 @@ public class Model {
         for (Tile tile : neighbors) {//qui abbiamo anche i buchi
             removeBlock(tile);
             gridArray[tile.getX()][tile.getY()].setNumber(0);
-
         }
 
         getTile(x, y).increaseTile();//from the class tile
-        toTop(neighbors);
 
 
-        mergeWithNewTile(neighbors);
+         moveTiles();
+
+        //  toTop(getBlocksAsList());
+
+        //mergeWithNewTile(neighbors);
+
         //print an array in console to check the work
         for (int i = 0; i < Settings.WIDTH; i++) {
             for (int j = 0; j < Settings.HEIGHT; j++) {
@@ -145,10 +148,22 @@ public class Model {
      */
     private void toTop(ArrayList<Tile> neighbors) {
 
-        for (Tile tile : neighbors) {
+        for (Tile tile : getBlocksAsList()) {
+            int y1 = tile.getY() - 1;
+
+            if (getTile(tile.getX(), y1).getNumber() > 0) {
+                tile.setNumber(getTile(tile.getX(), y1).getNumber());
+
+            }
+        }
+
+
+
+       /* for (Tile tile : neighbors) {
             int y = tile.getY();
             for (int i = y; i >= 1; i--) {
-                Tile above = getTile(tile.getX(), i - 1);
+//                Tile above = getTile(tile.getX(), i - 1);
+                Tile above = getTile(tile.getX(), i );
 
                 gridArray[above.getX()][i - 1] = tile;
                 gridArray[above.getX()][i] = above;
@@ -156,10 +171,31 @@ public class Model {
                 above.fall();
                 tile.rise();
 
-                fallDown(above);
+                // fallDown(above);
+            }
+        }*/
+
+    }
+
+    /**
+     * Move tiles to the new position
+     */
+    private void moveTiles() {
+        System.out.println("test");
+        for (int i = gridArray.length - 1; i >= 0; i--) {
+            for (int j = gridArray[i].length - 2; j >= 0; j--) {
+                if (gridArray[i][j] != null) {
+                    while (gridArray[i][j + 1] == null) {
+                        gridArray[i][j].setY(j + 1);
+                        gridArray[i][j + 1] = gridArray[i][j];
+                        gridArray[i][j] = null;
+                        if (j < gridArray[i].length - 2) {
+                            j++;
+                        }
+                    }
+                }
             }
         }
-
     }
 
     /**
@@ -178,7 +214,7 @@ public class Model {
         for (Tile tile : zeroTile) {
             int x = tile.getX();
             int y = tile.getY();
-            Tile newTile = new Tile(x, y, 5, this);
+            Tile newTile = new Tile(x, y, 0, this);
             this.gridArray[x][y] = newTile;
 
 
@@ -188,7 +224,6 @@ public class Model {
     /**
      * save what in the array in a list
      */
-
     private ArrayList<Tile> getBlocksAsList() {
 
         ArrayList<Tile> blockList = new ArrayList<>();
